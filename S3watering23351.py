@@ -3,7 +3,7 @@ N, K, A, B = map(int, input().split())
 
 bases = list(range(0, N))
 day = 0
-a = 0 #연속해서 줄 화분의 첫번재 인덱스
+a = 0 #연속해서 물을 줄 화분의 첫번재 인덱스
 
 for i in range(N):
     bases[i] = K
@@ -11,17 +11,19 @@ for i in range(N):
 while True:
     day += 1
 
-    for i in range(a, a+A+1):
-        bases[i] += B
-    a += A
-    if a >= N:
-        a = 0
+    for i in range(A):
+        bases[a] += B
+        a += 1
+    a %= N
 
     for i in range(N):
         bases[i] -= 1
-        if bases[i] == 0:
-            print(day)
-            break
+
+    if 0 in bases:
+        break
+
+print(day)
+
 
 
 
