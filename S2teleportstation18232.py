@@ -6,7 +6,7 @@ N, M = map(int, input().split())
 S, E = map(int, input().split())
 
 teleport = [[]for _ in range(N+1)]
-visited = [-1]*(N+1)
+visited = [False]*(N+1)
 
 for _ in range(M):
     x, y = map(int, input().split())
@@ -16,4 +16,18 @@ for _ in range(M):
 def bfs(start):
     queue = deque()
     queue.append((start, 0))
+    while queue:
+        x, d = queue.popleft()
+        if x == E:
+            return d
+        if 1<= x <= N:
+            if not visited[x]:
+                visited[x] = True
+                queue.append((x+1, d+1))
+                queue.append((x-1, d+1))
+                if len(teleport[x]) > 0:
+                    for i in teleport[x]:
+                        queue.append((i, d+1))
+
+print(bfs(S))
 
