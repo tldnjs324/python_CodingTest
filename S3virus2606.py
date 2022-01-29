@@ -19,7 +19,7 @@ def dfs(start):
     global count #전역 변수로 바꿔줌
     visited[start] = True
     for i in graph[start]:
-        if visited[i] == False:
+        if not visited[i]:
             dfs(i)
             count += 1
 
