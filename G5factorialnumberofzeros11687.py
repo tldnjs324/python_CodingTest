@@ -20,7 +20,8 @@ while start <= end:
         start = mid + 1
 
 
-if(result == 0):
-    print(-1)
-else:
+if(result > 0):
     print(result)
+
+else:
+    print(-1)
