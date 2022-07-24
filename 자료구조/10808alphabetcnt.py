@@ -7,5 +7,5 @@ cnt = [0] * 26
 for i in S:
     cnt[ord(i)-97] += 1
 
-#배열 cnt를 순서대로 출력
+#모든 cnt 값 출력
 print(*cnt)
