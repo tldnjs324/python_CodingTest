@@ -1,14 +1,14 @@
 from collections import deque
 n = int(input())
-dist = [[-1]* (n+1) for _ in range(n+1)]
+dist = [[-1] * (n+1) for _ in range(n+1)]
 q = deque()
-q.append((1,0))  # 화면 이모티콘 개수, 클립보드 이모티콘 개수
+q.append((1, 0))  # 화면 이모티콘 개수, 클립보드 이모티콘 개수
 dist[1][0] = 0
 while q:
-    s,c = q.popleft()
+    s, c = q.popleft()
     if dist[s][s] == -1: # 방문하지 않았으면
         dist[s][s] = dist[s][c] + 1
-        q.append((s,s))
+        q.append((s, s))
     if s+c <= n and dist[s+c][c] == -1:
         dist[s+c][c] = dist[s][c] + 1
         q.append((s+c, c))
