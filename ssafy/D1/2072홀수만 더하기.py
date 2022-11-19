@@ -7,4 +7,4 @@ for i in range(T):
         if data[j]%2 == 1:
             sum+=data[j]
 
-    print('#' + str(i+1), str(sum))
+    print('#%d %d' % (i+1, sum))
